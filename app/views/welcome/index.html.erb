@@ -1,0 +1,59 @@
+<div class="header-2 w-full">
+
+  <nav class="bg-white py-2 md:py-4">
+    <div class="container px-4 mx-auto md:flex md:items-center">
+
+      <div class="flex justify-between items-center">
+        <a class="flex-none" href="#">
+          <img class="w-28 h-28" src="https://github.com/hamouj/image_repo/assets/114951691/96c7b04c-5240-464c-90b9-46e1b485a3fa" alt="Excuse Me Logo">
+        </a>
+        <button class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden" id="navbar-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-slate-800 py-6 md:py-12">
+    <div class="container px-4 mx-auto">
+
+      <div class="text-center max-w-2xl mx-auto">
+        <% if @facade.excuse == "true" %>
+            <h3 class="text-xl md:text-xl text-white font-medium mb-2"> <%= @facade.fetch_random_excuse.excuse %> </h3>
+            <button class="bg-rose-600 text-white py-2 px-6 rounded-full text-xl mt-6">
+              <%= link_to "I need another excuse", '/?excuse=true' %>
+            </button>
+        <% elsif @facade.topic != nil %>
+            <h3 class="text-2xl md:text-xl text-white font-medium mb-2"> <%= @facade.topic %> Excuse </h3>
+            <h3 class="text-xl md:text-xl text-white font-medium mb-2"> <%= @facade.fetch_excuse_by_topic.excuse %> </h3>
+            <button class="bg-rose-600 text-white py-2 px-6 rounded-full text-xl mt-6">
+              <%= link_to "Give me a random excuse!", '/?excuse=true' %>
+            </button>
+        <% else %>
+          <h1 class="text-3xl md:text-4xl text-white font-medium mb-2">Get the excuse you need to get out of that awkward situation.</h1>
+          <button class="bg-rose-600 text-white py-2 px-6 rounded-full text-xl mt-6">
+            <%= link_to "Give me a random excuse!", '/?excuse=true' %>
+          </button>
+        <% end %>
+
+        <div class="mt-4">
+          <img src="https://github.com/hamouj/image_repo/assets/114951691/8de68e44-9c70-4199-b416-80cd5a9fc240" alt="awkward turtle" class="mx-auto d-block max-w-full rounded shadow-md">
+        </div>
+      </div>
+
+      <div class="bg-slate-700 h-screen px-10 py-20 w-full">
+  <form>
+    <div class="max-w-xl">
+      <div class="flex space-x-4">
+        <div class="flex rounded-md overflow-hidden w-full justify-center">
+          <h1 class="text-xl md:text-xl text-white font-medium mb-2 mr-4 align-middle">Search for the perfect excuse.</h1>
+            <%= form_with url:"/", method: :get, local: true do |f| %>
+                <% f.select :excuse_topic, ["Family", "Office", "Children", "College", "Party", "Funny", "Unbelievable", "Developers", "Gaming"] %>
+            <% end %>
+          <button class="bg-rose-600 text-white px-6 text-lg font-semibold py-4 rounded-r-md">Find my excuse
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
