@@ -37,20 +37,20 @@
         <% end %>
 
         <div class="mt-4">
-          <img src="https://github.com/hamouj/image_repo/assets/114951691/8de68e44-9c70-4199-b416-80cd5a9fc240" alt="awkward turtle" class="mx-auto d-block max-w-full rounded shadow-md">
+          <img src="https://github.com/hamouj/image_repo/assets/114951691/8de68e44-9c70-4199-b416-80cd5a9fc240" alt="awkward turtle" class="mx-auto d-block max-w-full rounded shadow-md mb-12">
         </div>
       </div>
 
-      <div class="bg-slate-700 h-screen px-10 py-20 w-full">
+      <div class="bg-slate-700 h-auto px-10 py-5 w-full">
   <form>
     <div class="max-w-xl">
-      <div class="flex space-x-4">
-        <div class="flex rounded-md overflow-hidden w-full justify-center">
+      <div class="flex space-x-4 items-center">
+        <div class="flex rounded-md overflow-hidden w-full">
           <h1 class="text-xl md:text-xl text-white font-medium mb-2 mr-4 align-middle">Search for the perfect excuse.</h1>
             <%= form_with url:"/", method: :get, local: true do |f| %>
                 <% f.select :excuse_topic, ["Family", "Office", "Children", "College", "Party", "Funny", "Unbelievable", "Developers", "Gaming"] %>
             <% end %>
-          <button class="bg-rose-600 text-white px-6 text-lg font-semibold py-4 rounded-r-md">Find my excuse
+          <button class="bg-rose-600 text-white px-6 text-lg font-semibold py-2 rounded-r-md">Find my excuse
           </button>
         </div>
       </div>
