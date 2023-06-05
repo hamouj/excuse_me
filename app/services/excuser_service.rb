@@ -1,4 +1,8 @@
 class ExcuserService
+  def self.get_topic_excuse(topic)
+    get_url("/v1/excuse/#{topic}")
+  end
+
   def self.get_random_excuse
     get_url('/v1/excuse')
   end
